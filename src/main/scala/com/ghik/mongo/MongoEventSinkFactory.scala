@@ -8,10 +8,9 @@ import com.mongodb.Mongo
  * User: ghik
  * Date: 29.12.12
  * Time: 23:03
- * To change this template use File | Settings | File Templates.
  */
 class MongoEventSinkFactory(batchSize: Int) extends EventSinkFactory {
   private val mongo = new Mongo
 
-  def createEventSink[T](name: String) = new MongoEventSink[T](name, mongo, batchSize)
+  def createEventSink[T](name: String) = new MongoEventSink[T](mongo.getDB(name).getCollection(name), batchSize)
 }

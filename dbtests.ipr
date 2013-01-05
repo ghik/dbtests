@@ -26,6 +26,9 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
   <component name="GradleUISettings">
     <setting name="root" />
   </component>
@@ -184,12 +187,14 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
     <library name="scala-compiler">
       <CLASSES>
         <root url="jar://$USER_HOME$/soft/scala/lib/scala-compiler.jar!/" />
         <root url="jar://$USER_HOME$/soft/scala/lib/scala-library.jar!/" />
+        <root url="jar://$USER_HOME$/soft/scala/lib/scala-reflect.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
@@ -198,7 +203,7 @@
       <CLASSES>
         <root url="jar://$USER_HOME$/soft/scala/lib/scala-library.jar!/" />
         <root url="jar://$USER_HOME$/soft/scala/lib/scala-swing.jar!/" />
-        <root url="jar://$USER_HOME$/soft/scala/lib/scala-dbc.jar!/" />
+        <root url="jar://$USER_HOME$/soft/scala/lib/scala-actors.jar!/" />
       </CLASSES>
       <JAVADOC>
         <root url="file://$USER_HOME$/soft/scala/doc/scala-devel-docs/api" />
@@ -206,7 +211,7 @@
       <SOURCES>
         <root url="jar://$USER_HOME$/soft/scala/src/scala-library-src.jar!/" />
         <root url="jar://$USER_HOME$/soft/scala/src/scala-swing-src.jar!/" />
-        <root url="jar://$USER_HOME$/soft/scala/src/scala-dbc-src.jar!/" />
+        <root url="jar://$USER_HOME$/soft/scala/src/scala-actors-src.jar!/" />
       </SOURCES>
     </library>
   </component>

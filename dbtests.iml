@@ -5,6 +5,7 @@
       <configuration>
         <option name="compilerLibraryLevel" value="Project" />
         <option name="compilerLibraryName" value="scala-compiler" />
+        <option name="compilerOptions" value="-feature" />
       </configuration>
     </facet>
   </component>
@@ -20,13 +21,35 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.9.2/jar/55cf429e92d45524a548929a9d6e790205a0e61/scala-library-2.9.2.jar!/" />
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/com.google.guava/guava/13.0.1/jar/d6f22b1e60a2f1ef99e22c9f5fde270b2088365/guava-13.0.1.jar!/" />
         </CLASSES>
         <JAVADOC>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.9.2/javadoc/98870812bb14802d6ed93e63b0e14481e147e5ac/scala-library-2.9.2-javadoc.jar!/" />
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/com.google.guava/guava/13.0.1/javadoc/adb5f5700edd5a7cba8f3121e9d58884cea8cd50/guava-13.0.1-javadoc.jar!/" />
         </JAVADOC>
         <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.9.2/source/1c8e0222e53c7157befbf752bee474c7ab458eb4/scala-library-2.9.2-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/com.google.guava/guava/13.0.1/source/ea42e17f75a65e72d12cd311b7d1e7d6356bbb3f/guava-13.0.1-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/com.google.code.findbugs/jsr305/2.0.1/jar/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.10.0/jar/43c6d98b445187c6b459a582c774ffb025120ef4/scala-library-2.10.0.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.10.0/javadoc/aba1f9f2ae65b043df116a8ba46a8773101e4a55/scala-library-2.10.0-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.10.0/source/6031abe6d4ab6299fc3d06802a8bffe36af3774a/scala-library-2.10.0-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>

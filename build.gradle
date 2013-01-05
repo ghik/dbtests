@@ -14,9 +14,13 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    scalaTools 'org.scala-lang:scala-compiler:2.9.2'
+def scalaVersion = '2.10.0'
 
-    compile 'org.scala-lang:scala-library:2.9.2'
+dependencies {
+    scalaTools 'org.scala-lang:scala-compiler:' + scalaVersion
+
+    compile 'com.google.guava:guava:13.0.1'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    compile 'org.scala-lang:scala-library:' + scalaVersion
     compile 'org.mongodb:mongo-java-driver:2.10.1'
 }
