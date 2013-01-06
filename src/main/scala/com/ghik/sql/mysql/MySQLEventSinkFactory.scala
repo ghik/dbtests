@@ -3,7 +3,8 @@ package com.ghik.mysql
 import com.ghik.{EventSink, EventSinkFactory}
 import java.sql.DriverManager
 import scala.reflect.runtime.universe._
-import MysqlEventSinkFactory._
+import MySQLEventSinkFactory._
+import com.ghik.sql.SQLEventSink
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,9 +12,7 @@ import MysqlEventSinkFactory._
  * Date: 05.01.13
  * Time: 22:08
  */
-class MysqlEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFactory {
-  val stringClass = classOf[String]
-
+class MySQLEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFactory {
   def createEventSink[T: TypeTag](name: String): EventSink[T] = {
     val jdbcUrl: String = "jdbc:mysql://localhost/dbtests?useServerPrepStmts=false&rewriteBatchedStatements=true"
     val conn = DriverManager.getConnection(jdbcUrl, "root", "")
@@ -22,7 +21,7 @@ class MysqlEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFac
       """create table if not exists %s (
              id int not null auto_increment primary key,
              deviceId int not null,
-             tstamp timestamp not null,
+             tstamp bigint not null,
              data %s,
              index (deviceId),
              index (tstamp, deviceId)
@@ -34,11 +33,11 @@ class MysqlEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFac
     st.executeUpdate()
     st.close()
 
-    new MysqlEventSink[T](name, batchSize, conn)
+    new SQLEventSink[T](name, batchSize, conn)
   }
 }
 
-object MysqlEventSinkFactory {
+object MySQLEventSinkFactory {
 
   private def sqlType[T: TypeTag]: String = typeOf[T] match {
     case t if t =:= typeOf[Int] => "int"
@@ -46,6 +45,6 @@ object MysqlEventSinkFactory {
   }
 
   def main(args: Array[String]) {
-    new MysqlEventSinkFactory(100, Engine.MyISAM).createEventSink[Int]("stuff")
+    new MySQLEventSinkFactory(100, Engine.MyISAM).createEventSink[Int]("stuff")
   }
 }

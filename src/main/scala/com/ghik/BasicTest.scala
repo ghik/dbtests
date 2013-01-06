@@ -1,8 +1,9 @@
 package com.ghik
 
 import mongo.MongoEventSinkFactory
-import mysql.{Engine, MysqlEventSinkFactory}
+import mysql.{Engine, MySQLEventSinkFactory}
 import com.mongodb.WriteConcern
+import com.ghik.postgresql.PostgreSQLEventSinkFactory
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,12 +20,13 @@ object BasicTest {
   def main(args: Array[String]) {
     List(10000, 100000, 200000) foreach {
       batchSize =>
-        runTest(new MongoEventSinkFactory(batchSize, WriteConcern.NORMAL), 100000, 1)
-        runTest(new MongoEventSinkFactory(batchSize, WriteConcern.SAFE), 100000, 1)
-        runTest(new MongoEventSinkFactory(batchSize, WriteConcern.JOURNAL_SAFE), 100000, 1)
-        runTest(new MongoEventSinkFactory(batchSize, WriteConcern.FSYNC_SAFE), 100000, 1)
-        runTest(new MysqlEventSinkFactory(batchSize, Engine.MyISAM), 100000, 1)
-        runTest(new MysqlEventSinkFactory(batchSize, Engine.InnoDB), 100000, 1)
+        //runTest(new MongoEventSinkFactory(batchSize, WriteConcern.NORMAL), 100000, 1)
+        //runTest(new MongoEventSinkFactory(batchSize, WriteConcern.SAFE), 100000, 1)
+        //runTest(new MongoEventSinkFactory(batchSize, WriteConcern.JOURNAL_SAFE), 100000, 1)
+        //runTest(new MongoEventSinkFactory(batchSize, WriteConcern.FSYNC_SAFE), 100000, 1)
+        runTest(new MySQLEventSinkFactory(batchSize, Engine.MyISAM), 100000, 1)
+        runTest(new MySQLEventSinkFactory(batchSize, Engine.InnoDB), 100000, 1)
+        runTest(new PostgreSQLEventSinkFactory(batchSize), 100000, 1)
     }
   }
 
@@ -46,6 +48,8 @@ object BasicTest {
 
     val totalEvents = eg.map(_.totalEvents).sum
     println("Took %s to insert %s events which is %s per sec.".format(time, totalEvents, totalEvents / time))
+
+    Thread.sleep(5000)
   }
 
   private def benchmark[T](expr: => T): (T, Double) = {
