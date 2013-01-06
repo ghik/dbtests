@@ -1,4 +1,4 @@
-package com.ghik.mysql
+package com.ghik.sql.mysql
 
 /**
  * Created with IntelliJ IDEA.

@@ -23,4 +23,6 @@ class MongoEventSinkFactory(batchSize: Int, writeConcern: WriteConcern) extends 
 
     new MongoEventSink[T](coll, batchSize)
   }
+
+  val description = "MongoDB"
 }

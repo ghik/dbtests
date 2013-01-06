@@ -1,10 +1,9 @@
-package com.ghik.postgresql
+package com.ghik.sql.postgresql
 
 import com.ghik.{EventSink, EventSinkFactory}
 import java.sql.DriverManager
 import scala.reflect.runtime.universe._
 import PostgreSQLEventSinkFactory._
-import com.ghik.sql.SQLEventSink
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,8 +31,10 @@ class PostgreSQLEventSinkFactory(batchSize: Int) extends EventSinkFactory {
     st.executeUpdate()
     st.close()
 
-    new SQLEventSink[T](name, batchSize, conn)
+    new PostgreSQLEventSink[T](name, batchSize, conn)
   }
+
+  val description = "PostgreSQL"
 }
 
 object PostgreSQLEventSinkFactory {

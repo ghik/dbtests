@@ -14,4 +14,6 @@ class NullSinkFactory extends EventSinkFactory {
     def clear() {}
     def flush() {}
   }
+
+  val description = "Null"
 }

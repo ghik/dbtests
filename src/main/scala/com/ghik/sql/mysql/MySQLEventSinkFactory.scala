@@ -1,10 +1,9 @@
-package com.ghik.mysql
+package com.ghik.sql.mysql
 
 import com.ghik.{EventSink, EventSinkFactory}
 import java.sql.DriverManager
 import scala.reflect.runtime.universe._
 import MySQLEventSinkFactory._
-import com.ghik.sql.SQLEventSink
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,8 +32,10 @@ class MySQLEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFac
     st.executeUpdate()
     st.close()
 
-    new SQLEventSink[T](name, batchSize, conn)
+    new MySQLEventSink[T](name, batchSize, conn)
   }
+
+  val description = "MySQL"
 }
 
 object MySQLEventSinkFactory {

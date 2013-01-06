@@ -2,10 +2,9 @@ package com.ghik.mongo
 
 import scala.collection.JavaConversions._
 import com.ghik.{Event, EventSink}
-import com.mongodb.{DBCollection, DBObject, BasicDBObject, Mongo}
+import com.mongodb.{DBCollection, DBObject, BasicDBObject}
 import java.util.Date
 import collection.mutable.ArrayBuffer
-import java.util
 import com.google.common.collect.{Maps, Lists}
 
 /**

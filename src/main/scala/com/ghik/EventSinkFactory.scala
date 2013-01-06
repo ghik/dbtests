@@ -10,4 +10,5 @@ import scala.reflect.runtime.universe._
  */
 trait EventSinkFactory {
   def createEventSink[T: TypeTag](name: String): EventSink[T]
+  val description: String
 }

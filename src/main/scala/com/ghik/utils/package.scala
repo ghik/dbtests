@@ -18,4 +18,10 @@ package object utils {
 
     def *(s: String) = s * i
   }
+
+  def benchmark[T](expr: => T): (T, Double) = {
+    val start = System.nanoTime()
+    val res = expr
+    (res, (System.nanoTime() - start) / 1000000000.0)
+  }
 }
