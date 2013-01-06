@@ -1,7 +1,7 @@
 package com.ghik.mongo
 
 import com.ghik.utils._
-import com.mongodb.{BasicDBObject, DBObject, Mongo}
+import com.mongodb.{DB, BasicDBObject, DBObject, Mongo}
 import collection.mutable.ArrayBuffer
 import util.Random
 import collection.JavaConversions._
@@ -18,9 +18,10 @@ object NativeMongoTest {
   }
 
   def runTest(batchSize: Int, count: Int) {
-    val coll = (new Mongo).getDB("stuff").getCollection("stuff")
-    coll.drop()
+    val db: DB = (new Mongo).getDB("stuff")
+    db.dropDatabase()
 
+    val coll = db.getCollection("stuff")
     coll.ensureIndex(new BasicDBObject("deviceId", 1))
     coll.ensureIndex(new BasicDBObject("timestamp", 1).append("deviceId", 1))
 
