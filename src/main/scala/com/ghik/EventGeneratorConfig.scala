@@ -9,4 +9,6 @@ import util.Random
  * Time: 16:10
  */
 
-case class EventGeneratorConfig[T](sink: EventSink[T], dataGen: Random => T, count: Int)
+case class EventGeneratorConfig[T](sink: EventSink[T], dataGen: Random => T, count: Int) {
+  type DataType = T
+}

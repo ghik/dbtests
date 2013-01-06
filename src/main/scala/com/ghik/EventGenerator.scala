@@ -8,7 +8,7 @@ import util.Random
  * Date: 02.01.13
  * Time: 23:25
  */
-class EventGenerator(deviceCount: Int, iters: Int, configs: Traversable[EventGeneratorConfig[Any]]) extends Runnable {
+class EventGenerator(deviceCount: Int, iters: Int, configs: Traversable[EventGeneratorConfig[_]]) extends Runnable {
 
   import utils._
 
@@ -17,9 +17,9 @@ class EventGenerator(deviceCount: Int, iters: Int, configs: Traversable[EventGen
 
     iters times {
       configs foreach {
-        case EventGeneratorConfig(sink, dataGen, count) =>
+        case config@EventGeneratorConfig(sink, dataGen, count) =>
           count times {
-            val event: Event[Any] = Event(r.nextInt(deviceCount), System.currentTimeMillis, dataGen(r))
+            val event = Event[config.DataType](r.nextInt(deviceCount), System.currentTimeMillis + 1000000, dataGen(r))
             sink.insert(event)
           }
       }

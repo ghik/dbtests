@@ -1,5 +1,7 @@
 package com.ghik
 
+import scala.reflect.runtime.universe._
+
 /**
  * Created with IntelliJ IDEA.
  * User: ghik
@@ -7,5 +9,5 @@ package com.ghik
  * Time: 23:03
  */
 trait EventSinkFactory {
-  def createEventSink[T](name: String): EventSink[T]
+  def createEventSink[T: TypeTag](name: String): EventSink[T]
 }

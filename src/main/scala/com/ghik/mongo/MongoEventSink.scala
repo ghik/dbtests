@@ -21,10 +21,7 @@ class MongoEventSink[T](
 
   import MongoEventSink._
 
-  coll.ensureIndex(new BasicDBObject("deviceId", 1).append("timestamp", 1))
-  coll.ensureIndex(new BasicDBObject("timestamp", 1))
-
-  private val batch = new ArrayBuffer[DBObject]
+  private var batch = new ArrayBuffer[DBObject](batchSize)
 
   def insert(event: Event[T]) {
     batch += toDocument[T](event)
@@ -37,7 +34,7 @@ class MongoEventSink[T](
 
   def flush() {
     coll.insert(batch: java.util.List[DBObject])
-    batch.clear()
+    batch = new ArrayBuffer[DBObject](batchSize)
   }
 
   def clear() {
@@ -46,11 +43,15 @@ class MongoEventSink[T](
 }
 
 object MongoEventSink {
+  val DEVICE_ID_FIELD = "deviceId"
+  val TIMESTAMP_FIELD = "timestamp"
+  val DATA_FIELD = "data"
+
   private def toDocument[T](event: Event[T]): DBObject = {
     val res = new BasicDBObject
-    res.put("deviceId", event.deviceId)
-    res.put("timestamp", new Date(event.timestamp))
-    res.put("data", toMongo(event.data))
+    res.put(DEVICE_ID_FIELD, event.deviceId)
+    res.put(TIMESTAMP_FIELD, new Date(event.timestamp))
+    res.put(DATA_FIELD, toMongo(event.data))
     res
   }
 

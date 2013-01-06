@@ -3,11 +3,9 @@ apply plugin: 'idea'
 
 version = '1.0-SNAPSHOT'
 
-idea {
-    module {
-        downloadJavadoc = true
-        downloadSources = true
-    }
+configurations {
+    ideaProvided
+    compile.extendsFrom(ideaProvided)
 }
 
 repositories {
@@ -17,10 +15,22 @@ repositories {
 def scalaVersion = '2.10.0'
 
 dependencies {
-    scalaTools 'org.scala-lang:scala-compiler:' + scalaVersion
+    scalaTools "org.scala-lang:scala-compiler:$scalaVersion"
+    ideaProvided "org.scala-lang:scala-library:$scalaVersion"
 
-    compile 'com.google.guava:guava:13.0.1'
-    compile 'com.google.code.findbugs:jsr305:2.0.1'
-    compile 'org.scala-lang:scala-library:' + scalaVersion
-    compile 'org.mongodb:mongo-java-driver:2.10.1'
+    compile "org.scala-lang:scala-reflect:$scalaVersion"
+    compile "com.google.guava:guava:13.0.1"
+    compile "com.google.code.findbugs:jsr305:2.0.1"
+    compile "org.mongodb:mongo-java-driver:2.10.1"
+    compile "mysql:mysql-connector-java:5.1.22"
+    compile "postgresql:postgresql:9.1-901.jdbc4"
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+
+        scopes.COMPILE.minus += configurations.ideaProvided
+    }
 }

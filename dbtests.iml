@@ -18,6 +18,21 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="scala-library" level="project" />
+    <orderEntry type="library" name="groovy-2.0.6" level="application" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-reflect/2.10.0/jar/10ec1256a6e875e886fec050edb0669166912d0d/scala-reflect-2.10.0.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-reflect/2.10.0/javadoc/aba1f9f2ae65b043df116a8ba46a8773101e4a55/scala-reflect-2.10.0-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-reflect/2.10.0/source/fec87d40ef070ab31ed38253b939f7246cee15cd/scala-reflect-2.10.0-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
@@ -43,19 +58,6 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.10.0/jar/43c6d98b445187c6b459a582c774ffb025120ef4/scala-library-2.10.0.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.10.0/javadoc/aba1f9f2ae65b043df116a8ba46a8773101e4a55/scala-library-2.10.0-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.scala-lang/scala-library/2.10.0/source/6031abe6d4ab6299fc3d06802a8bffe36af3774a/scala-library-2.10.0-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
           <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.mongodb/mongo-java-driver/2.10.1/jar/9e2c2835b0126a48183ed42129e53b6eb6e259b/mongo-java-driver-2.10.1.jar!/" />
         </CLASSES>
         <JAVADOC>
@@ -66,7 +68,28 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="scala-library" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/mysql/mysql-connector-java/5.1.22/jar/3ae0cff91d7f40d5b4c7cefbbd1eab34025bdc15/mysql-connector-java-5.1.22.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/postgresql/postgresql/9.1-901.jdbc4/jar/153f2f92a786f12fc111d0111f709012df87c808/postgresql-9.1-901.jdbc4.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/postgresql/postgresql/9.1-901.jdbc4/javadoc/ffbb149467131e299c9a433bba05ccc9975f4035/postgresql-9.1-901.jdbc4-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/postgresql/postgresql/9.1-901.jdbc4/source/8e9d82a070f2b4d9e8561a567bf4daca36eed4e2/postgresql-9.1-901.jdbc4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 
