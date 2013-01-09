@@ -5,6 +5,7 @@ import sql.mysql.{Engine, MySQLEventSinkFactory}
 import collection.mutable.ArrayBuffer
 import com.mongodb.WriteConcern
 import sql.postgresql.PostgreSQLEventSinkFactory
+import util.Random
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,10 +38,10 @@ object TestRunner {
     def sinks = ArrayBuffer() ++ intSinks ++ vecSinks ++ stringSinks
     sinks foreach {_.clear()}
 
-    def configs = ArrayBuffer[EventGeneratorConfig[_]]() ++
-      intSinks.map {EventGeneratorConfig(_, r => r.nextInt(20000), 1)} ++
-      vecSinks.map {EventGeneratorConfig(_, r => (r.nextDouble(), r.nextDouble()), 1)} ++
-      stringSinks.map {EventGeneratorConfig(_, r => 20 * r.nextPrintableChar().toString, 1)}
+    def configs = ArrayBuffer[EventGenerator.Config[_]]() ++
+      intSinks.map {(_, (r: Random) => r.nextInt(20000), 1)} ++
+      vecSinks.map {(_, (r: Random) => (r.nextDouble(), r.nextDouble()), 1)} ++
+      stringSinks.map {(_, (r: Random) => 20 * r.nextPrintableChar().toString, 1)}
 
     val eg = Traversable.fill(concurrencyLevel)(new EventGenerator(deviceCount, iters, configs))
     val ((), time) = benchmark {eg.par.foreach(_.run())}

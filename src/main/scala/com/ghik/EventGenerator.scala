@@ -1,6 +1,7 @@
 package com.ghik
 
 import util.Random
+import EventGenerator._
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +9,7 @@ import util.Random
  * Date: 02.01.13
  * Time: 23:25
  */
-class EventGenerator(deviceCount: Int, iters: Int, configs: Traversable[EventGeneratorConfig[_]]) extends Runnable {
+class EventGenerator(deviceCount: Int, iters: Int, configs: Traversable[Config[_]]) extends Runnable {
 
   import utils._
 
@@ -17,16 +18,20 @@ class EventGenerator(deviceCount: Int, iters: Int, configs: Traversable[EventGen
 
     iters times {
       configs foreach {
-        case config@EventGeneratorConfig(sink, dataGen, count) =>
+        case (sink, dataGen, count) =>
           count times {
-            val event = Event[config.DataType](r.nextInt(deviceCount), System.currentTimeMillis + 1000000, dataGen(r))
+            val event = Event(r.nextInt(deviceCount), System.currentTimeMillis + 1000000, dataGen(r))
             sink.insert(event)
           }
       }
     }
 
-    configs foreach {_.sink.flush()}
+    configs foreach {_._1.flush()}
   }
 
-  val totalEvents = iters * configs.map(_.count).sum
+  val totalEvents = iters * configs.map(_._3).sum
+}
+
+object EventGenerator {
+  type Config[T] = (EventSink[T], Random => T, Int)
 }
