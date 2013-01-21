@@ -18,14 +18,13 @@ class PostgreSQLEventSinkFactory(batchSize: Int) extends EventSinkFactory {
 
     val st = conn.prepareStatement(
       """create table if not exists %s (
-             id serial not null primary serializeKey,
+             id serial not null primary key,
              deviceId integer not null,
              tstamp bigint not null,
              data %s
          );
-         create index on %s (deviceId);
-         create index on %s (tstamp, deviceId);
-      """.format(name, sqlType[T], name, name)
+         create index on %s (tstamp);
+      """.format(name, sqlType[T], name)
     )
 
     st.executeUpdate()
@@ -34,7 +33,7 @@ class PostgreSQLEventSinkFactory(batchSize: Int) extends EventSinkFactory {
     new PostgreSQLEventSink[T](name, batchSize, conn)
   }
 
-  val description = "PostgreSQL"
+  val description = s"PostgreSQL with batch size $batchSize"
 }
 
 object PostgreSQLEventSinkFactory {

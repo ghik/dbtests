@@ -18,12 +18,11 @@ class MySQLEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFac
 
     val st = conn.prepareStatement(
       """create table if not exists %s (
-             id int not null auto_increment primary serializeKey,
+             id int not null auto_increment primary key,
              deviceId int not null,
              tstamp bigint not null,
              data %s,
-             index (deviceId),
-             index (tstamp, deviceId)
+             index (tstamp)
          )
          engine = %s
       """.format(name, sqlType[T], engine)
@@ -35,7 +34,7 @@ class MySQLEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFac
     new MySQLEventSink[T](name, batchSize, conn)
   }
 
-  val description = "MySQL"
+  val description = s"MySQL using $engine and batch size of $batchSize"
 }
 
 object MySQLEventSinkFactory {

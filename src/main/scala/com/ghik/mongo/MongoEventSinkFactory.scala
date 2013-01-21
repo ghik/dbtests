@@ -18,11 +18,10 @@ class MongoEventSinkFactory(batchSize: Int, writeConcern: WriteConcern) extends 
     val coll: DBCollection = mongo.getDB(name).getCollection(name)
 
     import MongoEventSink._
-    coll.ensureIndex(new BasicDBObject(DEVICE_ID_FIELD, 1).append(TIMESTAMP_FIELD, 1))
     coll.ensureIndex(new BasicDBObject(TIMESTAMP_FIELD, 1))
 
     new MongoEventSink[T](coll, batchSize)
   }
 
-  val description = "MongoDB"
+  val description = s"MongoDB with batch size $batchSize"
 }
