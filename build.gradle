@@ -10,6 +10,9 @@ configurations {
 
 repositories {
     mavenCentral()
+
+    maven { url "http://download.oracle.com/maven" }
+    maven { url "http://repo.fusesource.com/nexus/content/groups/public-snapshots" }
 }
 
 def scalaVersion = '2.10.0'
@@ -24,6 +27,8 @@ dependencies {
     compile "org.mongodb:mongo-java-driver:2.10.1"
     compile "mysql:mysql-connector-java:5.1.22"
     compile "postgresql:postgresql:9.1-901.jdbc4"
+    compile "com.sleepycat:je:5.0.58"
+    compile "org.fusesource.leveldbjni:leveldbjni-all:1.1"
 }
 
 idea {

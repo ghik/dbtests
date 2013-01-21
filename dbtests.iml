@@ -91,6 +91,32 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/com.sleepycat/je/5.0.58/jar/bb82e0540b1f60613ea8e6e85c2f9a92b4585bc0/je-5.0.58.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/com.sleepycat/je/5.0.58/javadoc/beb23f25b2eff2bfec19dcdb2879925e35ca865/je-5.0.58-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/com.sleepycat/je/5.0.58/source/192d4bf6e1ba84f5f3e8db4dcd83e528351fff06/je-5.0.58-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.fusesource.leveldbjni/leveldbjni-all/1.1/jar/6ced076f0d05502cea0c3fa30ce906a33807c173/leveldbjni-all-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.fusesource.leveldbjni/leveldbjni-all/1.1/javadoc/1801bd366fbef40cb5f4d2e5b4fd9d15074fc34f/leveldbjni-all-1.1-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-15/filestore/org.fusesource.leveldbjni/leveldbjni-all/1.1/source/bfc6152388f30949ec6ec7ae494a9ac5b831ce04/leveldbjni-all-1.1-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 

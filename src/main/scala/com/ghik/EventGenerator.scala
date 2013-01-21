@@ -26,7 +26,7 @@ class EventGenerator(deviceCount: Int, iters: Int, configs: Traversable[Config[_
       }
     }
 
-    configs foreach {_._1.flush()}
+    configs foreach {case (sink, _, _) => sink.flush()}
   }
 
   val totalEvents = iters * configs.map(_._3).sum

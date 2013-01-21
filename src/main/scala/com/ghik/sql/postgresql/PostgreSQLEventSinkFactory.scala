@@ -18,7 +18,7 @@ class PostgreSQLEventSinkFactory(batchSize: Int) extends EventSinkFactory {
 
     val st = conn.prepareStatement(
       """create table if not exists %s (
-             id serial not null primary key,
+             id serial not null primary serializeKey,
              deviceId integer not null,
              tstamp bigint not null,
              data %s

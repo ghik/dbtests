@@ -19,3 +19,5 @@ project/plugins/project/
 # IDEA specific
 *.iws
 
+# Gradle
+.gradle

@@ -18,7 +18,7 @@ class MySQLEventSinkFactory(batchSize: Int, engine: Engine) extends EventSinkFac
 
     val st = conn.prepareStatement(
       """create table if not exists %s (
-             id int not null auto_increment primary key,
+             id int not null auto_increment primary serializeKey,
              deviceId int not null,
              tstamp bigint not null,
              data %s,
