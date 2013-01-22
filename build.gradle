@@ -1,5 +1,6 @@
 apply plugin: 'scala'
 apply plugin: 'idea'
+apply plugin: 'application'
 
 version = '1.0-SNAPSHOT'
 
@@ -16,6 +17,20 @@ repositories {
 }
 
 def scalaVersion = '2.10.0'
+
+targetCompatibility = 1.7
+
+compileScala {
+    scalaCompileOptions.useAnt = false
+}
+
+mainClassName = 'com.ghik.TestRunner'
+
+run {
+    if (project.hasProperty("runArgs")) {
+        args runArgs.split("\\s+")
+    }
+}
 
 dependencies {
     scalaTools "org.scala-lang:scala-compiler:$scalaVersion"

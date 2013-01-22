@@ -24,14 +24,13 @@ object TestRunner {
   val iters = 200000
 
   def main(args: Array[String]) {
-    List(1) foreach {
-      batchSize =>
-        runTest(new BerkeleyDBEventSinkFactory(new File("/other/berkeleydb-je")), iters, 1)
-        runTest(new LevelDBEventSinkFactory(new File("/other/leveldb-jni"), 1), iters, 1)
-        runTest(new MongoEventSinkFactory(100000, WriteConcern.NORMAL), iters, 1)
-        runTest(new MySQLEventSinkFactory(100000, Engine.MyISAM), iters, 1)
-        runTest(new MySQLEventSinkFactory(100000, Engine.InnoDB), iters, 1)
-        runTest(new PostgreSQLEventSinkFactory(100000), iters, 1)
+    args(0) match {
+      case "bdb" => runTest(new BerkeleyDBEventSinkFactory(new File("/other/berkeleydb-je")), iters, 1)
+      //runTest(new LevelDBEventSinkFactory(new File("/other/leveldb-jni"), 1), iters, 1)
+      case "mongo" => runTest(new MongoEventSinkFactory(100000, WriteConcern.NORMAL), iters, 1)
+      case "myisam" => runTest(new MySQLEventSinkFactory(100000, Engine.MyISAM), iters, 1)
+      case "innodb" => runTest(new MySQLEventSinkFactory(100000, Engine.InnoDB), iters, 1)
+      case "psql" => runTest(new PostgreSQLEventSinkFactory(100000), iters, 1)
     }
   }
 
